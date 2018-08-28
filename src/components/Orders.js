@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 import orders from '../data/orders.json';
+import { initOrders } from '../reducers/index';
 import { getCustomerNameFromId } from '../selectors/selectors';
 
 class Orders extends React.Component {
@@ -9,14 +11,9 @@ class Orders extends React.Component {
     this.state = {}
   }
 
-  updateOrder(order) {
-    this.setState({
-      order
-    })
-  }
-
   componentDidMount() {
     this.setState({orders});
+    this.props.initOrders(orders);
   }
 
   render() {
@@ -55,4 +52,7 @@ class Orders extends React.Component {
 
 }
 
-export default Orders;
+const mapDispatchToProps = (dispatch) => ({
+  initOrders: (orders) => dispatch(initOrders(orders)),
+})
+export default connect(null, mapDispatchToProps)(Orders);

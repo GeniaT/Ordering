@@ -17,4 +17,4 @@ Testing: <a href="https://facebook.github.io/jest/">Jest</a>
 ## How to use it:
 - Run the command `git clone https://github.com/GeniaT/ordering.git`,
 - run `npm install`.
-- Once done, run the command `npm run dev-server` to see the app running locally on your computer. 
+- Once done, run the command `npm run dev-server` to see the app running locally on your computer.
