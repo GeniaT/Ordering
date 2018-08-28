@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateOrder } from '../ducks/orders/actions';
 import AddItemForm from './AddItemForm';
@@ -126,5 +127,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   updateOrder: (id, order) => dispatch(updateOrder(id, order)),
 })
+
+Order.propTypes = {
+  updateOrder: PropTypes.func.isRequired,
+  orders: PropTypes.arrayOf(PropTypes.object),
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Order);

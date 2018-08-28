@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { productIdExists, getUnitPrice } from '../selectors/selectors';
 
 class AddItemForm extends React.Component {
@@ -50,6 +51,8 @@ class AddItemForm extends React.Component {
   }
 }
 
-
+AddItemForm.propTypes = {
+  addItem: PropTypes.func.isRequired,
+}
 
 export default AddItemForm;

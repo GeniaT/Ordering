@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import orders from '../data/orders.json';
 import { initOrders } from '../ducks/orders/actions';
 import { getCustomerNameFromId, customerIdExists } from '../selectors/selectors';
@@ -65,4 +66,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   initOrders: (orders) => dispatch(initOrders(orders)),
 })
+
+Orders.propTypes = {
+  initOrders: PropTypes.func.isRequired,
+  orders: PropTypes.arrayOf(PropTypes.object),
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);
