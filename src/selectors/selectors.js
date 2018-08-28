@@ -17,10 +17,8 @@ export function getItemDescriptionFromId(id) {
 
 export function productIdExists(id) {
   if (products.filter((item) => item.id === id).length > 0) {
-    console.log("true");
     return true;
   }
-  console.log("false");
   return false;
 }
 

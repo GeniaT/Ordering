@@ -2,18 +2,16 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import orders from '../data/orders.json';
-import { initOrders } from '../reducers/index';
+import { initOrders } from '../ducks/orders/actions';
 import { getCustomerNameFromId } from '../selectors/selectors';
 
 class Orders extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
   }
 
   componentDidMount() {
-    this.setState({orders});
-    this.props.initOrders(orders);
+    return this.props.orders.length === 0 ? this.props.initOrders(orders) : null
   }
 
   render() {
@@ -28,7 +26,7 @@ class Orders extends React.Component {
           </tr>
         </thead>
         <tbody>
-        {this.state.orders && this.state.orders.map((order, index) =>
+        {this.props.orders && this.props.orders.map((order, index) =>
           <tr key={index}>
             <td>{order.id}</td>
             <td>{getCustomerNameFromId(order["customer-id"])}</td>
@@ -52,7 +50,11 @@ class Orders extends React.Component {
 
 }
 
+const mapStateToProps = (state) => ({
+  orders: state.orders,
+})
+
 const mapDispatchToProps = (dispatch) => ({
   initOrders: (orders) => dispatch(initOrders(orders)),
 })
-export default connect(null, mapDispatchToProps)(Orders);
+export default connect(mapStateToProps, mapDispatchToProps)(Orders);

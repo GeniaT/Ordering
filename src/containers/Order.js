@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateOrder } from '../reducers/index';
+import { updateOrder } from '../ducks/orders/actions';
 import AddItemForm from './AddItemForm';
 import { getItemDescriptionFromId } from '../selectors/selectors';
 

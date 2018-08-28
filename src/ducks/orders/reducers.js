@@ -1,15 +1,3 @@
-import { combineReducers } from 'redux';
-
-export const initOrders = (orders) => ({
-  type: 'INIT_ORDERS',
-  orders
-})
-export const updateOrder = (id, order) => ({
-  type: 'UPDATE_ORDER',
-  id,
-  order
-})
-
 const initialState = [];
 
 export default function orders(state = initialState, action) {
@@ -29,7 +17,3 @@ export default function orders(state = initialState, action) {
       return state
   }
 }
-
-export const appReducer = combineReducers({
-  orders,
-});

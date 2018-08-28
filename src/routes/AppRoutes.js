@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Orders from '../components/Orders';
-import Order from '../components/Order';
-import AddItemForm from '../components/AddItemForm';
+import Orders from '../containers/Orders';
+import Order from '../containers/Order';
+import AddItemForm from '../containers/AddItemForm';
 import WrongPage from '../components/WrongPage';
 
 
