@@ -26,3 +26,10 @@ export function getUnitPrice(id) {
   const unitPrice = products.filter((item) => item.id === id)[0].price;
   return unitPrice;
 }
+
+export function customerIdExists(id) {
+  if (customers.filter((customer) => customer.id === id).length > 0) {
+    return true;
+  }
+  return false;
+}

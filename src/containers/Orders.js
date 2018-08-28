@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import orders from '../data/orders.json';
 import { initOrders } from '../ducks/orders/actions';
-import { getCustomerNameFromId } from '../selectors/selectors';
+import { getCustomerNameFromId, customerIdExists } from '../selectors/selectors';
 
 class Orders extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  processOrder(order) {
+    if (order.items.length > 0 && order.total > 0) {
+      console.log("Thank you for your order, everything looks great!")
+    } else if (order.total == 0 || !customerIdExists(order["customer-id"])){
+      console.log("order failed, the total should be greater than 0 and the customer ID should exist in the API");
+    }
   }
 
   componentDidMount() {
@@ -38,7 +46,7 @@ class Orders extends React.Component {
             }}>
                 <button>{'...'}</button>
               </Link>
-              <button>{'Place the order'}</button>
+              <button onClick={() => this.processOrder(order)}>{'Place the order'}</button>
             </td>
           </tr>
         )}
