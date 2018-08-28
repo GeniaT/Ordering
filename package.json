@@ -13,6 +13,10 @@
   },
   "author": "Genia Tchistiakov",
   "license": "ISC",
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost/"
+  },
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
